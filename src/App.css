@@ -1,52 +1,7 @@
 canvas{
     border-style: solid;
     border-width: 3px;
-    width: 100%;
-    height: 100%;
+    width: 220.04px; /* Set the desired width */
+    height: 270px;
 }
 
-.container-fluid {
-    padding-top: 70px;
-}
-
-.label-style{
-    font-size: 20px;
-    margin-top: 30px;
-}
-
-.input-style{
-    padding: 5px;
-    font-size: 20px !important;
-    margin-top: 20px !important;
-}
-
-.btn-style{
-    padding: 10px !important;
-    font-size: 20px !important;
-    margin-top: 20px !important;
-}
-
-.w-33{
-    width: 32%;
-}
-
-.bot-image{
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    margin-top: 10px;
-    border-radius: 30px;
-    border-style: solid;
-    border-width: 2px;
-}
-
-.bot-image:hover{
-    border-width: 5px;
-}
-
-.home-gradient {
-    background: rgb(33,37,41);
-    background: linear-gradient(180deg, rgba(33,37,41,1) 6%, rgba(9,9,121,1) 45%, rgba(12,186,235,0.5186449579831933) 100%);
-    height: calc(100vh - 70px);
-    flex-direction: column;
-}

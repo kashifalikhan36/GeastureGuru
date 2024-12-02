@@ -1,19 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "React Chrome Extension",
+  "name": "GeastureGuru",
   "version": "1.0",
-  "description": "React app running in a maximized Chrome extension window.",
+  "description": "GestureGuru converts video speech to sign language in real-time, displaying a 3D avatar that syncs with any video. It makes content accessible for the deaf and hard-of-hearing community.",
   "icons": {
-    "16": "favicon.ico",
-    "48": "logo192.png",
-    "128": "logo512.png"
+    "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
   },
   "permissions": ["windows"],
   "action": {
     "default_icon": {
-      "16": "favicon.ico",
-      "48": "logo192.png",
-      "128": "logo512.png"
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
     }
   },
   "background": {

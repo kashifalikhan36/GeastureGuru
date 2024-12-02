@@ -1,17 +1,12 @@
-import '../App.css';
+import "../App.css";
 import React, { useState, useEffect, useRef } from "react";
-import Slider from 'react-input-slider';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
+import ybot from "../Models/ybot/ybot.glb";
 
-import xbot from '../Models/xbot/xbot.glb';
-import ybot from '../Models/ybot/ybot.glb';
-import xbotPic from '../Models/xbot/xbot.png';
-import ybotPic from '../Models/ybot/ybot.png';
-
-import * as words from '../Animations/words';
-import * as alphabets from '../Animations/alphabets';
-import { defaultPose } from '../Animations/defaultPose';
+import * as words from "../Animations/words";
+import * as alphabets from "../Animations/alphabets";
+import { defaultPose } from "../Animations/defaultPose";
 
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -20,7 +15,7 @@ function Convert() {
   const [text, setText] = useState("");
   const [bot, setBot] = useState(ybot);
   const [speed, setSpeed] = useState(0.1);
-  const [pause, setPause] = useState(800);
+  const [pause, setPause] = useState(100);
 
   const componentRef = useRef({});
   const { current: ref } = componentRef;
@@ -43,7 +38,7 @@ function Convert() {
     ref.renderer = new THREE.WebGLRenderer({ antialias: true });
     ref.camera = new THREE.PerspectiveCamera(
       30,
-      window.innerWidth * 0.57 / (window.innerHeight - 70),
+      (window.innerWidth * 0.57) / (window.innerHeight - 70),
       0.1,
       1000
     );
@@ -60,7 +55,7 @@ function Convert() {
       bot,
       (gltf) => {
         gltf.scene.traverse((child) => {
-          if (child.type === 'SkinnedMesh') {
+          if (child.type === "SkinnedMesh") {
             child.frustumCulled = false;
           }
         });
@@ -82,19 +77,31 @@ function Convert() {
     requestAnimationFrame(ref.animate);
     if (ref.animations[0].length) {
       if (!ref.flag) {
-        if (ref.animations[0][0] === 'add-text') {
+        if (ref.animations[0][0] === "add-text") {
           setText(text + ref.animations[0][1]);
           ref.animations.shift();
         } else {
-          for (let i = 0; i < ref.animations[0].length;) {
+          for (let i = 0; i < ref.animations[0].length; ) {
             let [boneName, action, axis, limit, sign] = ref.animations[0][i];
-            if (sign === "+" && ref.avatar.getObjectByName(boneName)[action][axis] < limit) {
+            if (
+              sign === "+" &&
+              ref.avatar.getObjectByName(boneName)[action][axis] < limit
+            ) {
               ref.avatar.getObjectByName(boneName)[action][axis] += speed;
-              ref.avatar.getObjectByName(boneName)[action][axis] = Math.min(ref.avatar.getObjectByName(boneName)[action][axis], limit);
+              ref.avatar.getObjectByName(boneName)[action][axis] = Math.min(
+                ref.avatar.getObjectByName(boneName)[action][axis],
+                limit
+              );
               i++;
-            } else if (sign === "-" && ref.avatar.getObjectByName(boneName)[action][axis] > limit) {
+            } else if (
+              sign === "-" &&
+              ref.avatar.getObjectByName(boneName)[action][axis] > limit
+            ) {
               ref.avatar.getObjectByName(boneName)[action][axis] -= speed;
-              ref.avatar.getObjectByName(boneName)[action][axis] = Math.max(ref.avatar.getObjectByName(boneName)[action][axis], limit);
+              ref.avatar.getObjectByName(boneName)[action][axis] = Math.max(
+                ref.avatar.getObjectByName(boneName)[action][axis],
+                limit
+              );
               i++;
             } else {
               ref.animations[0].splice(i, 1);
@@ -113,20 +120,18 @@ function Convert() {
   };
 
   const sign = (inputRef) => {
-    var str = inputRef.current.value.toUpperCase();
-    var strWords = str.split(' ');
-    setText('');
-
+    var STR = `SO LETS GET STARTED UH SO ILL BE TALKING ABOUT BUILDING LLMS TODAY UM SO I THINK A LOT OF YOU HAVE HEARD OF LLMS BEFORE UH BUT JUST AS A QUICK RECAP UH LLMS STANDING FOR LARGE LANGUAGE MODELS ARE BASICALLY ALL THE CHAT BOTS UH THAT YOUVE BEEN HEARING ABOUT RECENTLY SO UH CHAD GPT FROM OPEN AI CLAUDE FROM ANTHROPIC GEMINI AND AND MANY OTHER TYPES OF MODELS LIKE THIS AND TODAY WELL BE TALKING ABOUT HOW THEY ACTUALLY WORK SO ITS GOING TO BE AN OVERVIEW BECAUSE ITS ONLY ONE LECTURE AND ITS HARD TO COMPRESS EVERYTHING BUT HOPEFULLY ILL TOUCH A LITTLE BIT ABOUT ALL THE COMPONENTS THAT ARE NEEDED TO TRAIN UH SOME OF THESE LLMS UH ALSO IF YOU HAVE QUESTIONS PLEASE INTERRUPT ME AND ASK UH IF YOU HAVE A QUESTION MOST LIKELY OTHER PEOPLE IN THE ROOM OR ON ZOOM HAVE THE SAME QUESTION SO PLEASE ASK UM GREAT SO WHAT MATTERS WHEN TRAINING LLMS UM SO THERE ARE A FEW KEY COMPONENTS THAT MATTER UH ONE IS THE ARCHITECTURE SO AS YOU PROBABLY ALL KNOW LLMS ARE NEURAL NETWORKS AND WHEN YOU THINK ABOUT NEURAL`;
+    var strWords = STR.split(" ");
+    setText("");
     for (let word of strWords) {
       if (words[word]) {
-        ref.animations.push(['add-text', word + ' ']);
+        ref.animations.push(["add-text", word + " "]);
         words[word](ref);
       } else {
-        for (const [index, ch] of word.split('').entries()) {
+        for (const [index, ch] of word.split("").entries()) {
           if (index === word.length - 1)
-            ref.animations.push(['add-text', ch + ' ']);
-          else
-            ref.animations.push(['add-text', ch]);
+            ref.animations.push(["add-text", ch + " "]);
+          else ref.animations.push(["add-text", ch]);
           alphabets[ch](ref);
         }
       }
@@ -134,56 +139,22 @@ function Convert() {
   };
 
   return (
-    <div className='container-fluid'>
-      <div className='row'>
-        <div className='col-md-3'>
-          <label className='label-style'>
-            Processed Text
-          </label>
-          <textarea rows={3} value={text} className='w-100 input-style' readOnly />
-          <label className='label-style'>
-            Text Input
-          </label>
-          <textarea
-            rows={3}
-            ref={textFromInput}
-            placeholder='Type your text here...'
-            className='w-100 input-style'
-          />
-          <button onClick={() => { sign(textFromInput); }} className='btn btn-primary w-100 btn-style btn-start'>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-3">
+          <button
+            onClick={() => {
+              sign(textFromInput);
+            }}
+            className="btn btn-primary w-100 btn-style btn-start"
+          >
             Start Animations
           </button>
         </div>
-        <div className='col-md-7'>
-          <div id='canvas' />
+        <div className="col-md-7">
+          <div id="canvas" />
         </div>
-        <div className='col-md-2'>
-          <p className='bot-label'>Select Avatar</p>
-          <img src={xbotPic} className='bot-image col-md-11' onClick={() => { setBot(xbot); }} alt='Avatar 1: XBOT' />
-          <img src={ybotPic} className='bot-image col-md-11' onClick={() => { setBot(ybot); }} alt='Avatar 2: YBOT' />
-          <p className='label-style'>
-            Animation Speed: {Math.round(speed * 100) / 100}
-          </p>
-          <Slider
-            axis="x"
-            xmin={0.05}
-            xmax={0.50}
-            xstep={0.01}
-            x={speed}
-            onChange={({ x }) => setSpeed(x)}
-            className='w-100'
-          />
-          <p className='label-style'>Pause time: {pause} ms</p>
-          <Slider
-            axis="x"
-            xmin={0}
-            xmax={2000}
-            xstep={100}
-            x={pause}
-            onChange={({ x }) => setPause(x)}
-            className='w-100'
-          />
-        </div>
+        <div className="col-md-2"></div>
       </div>
     </div>
   );
