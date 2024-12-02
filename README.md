@@ -10,7 +10,7 @@ GestureGuru is a Chrome extension designed to make video content accessible for 
 - **Browser Compatibility**: Works seamlessly with any video playing in the Chrome browser.
 - **Enhanced Accessibility**: Provides access to diverse video resources for deaf and hard-of-hearing users.
 
-
+---
 
 ## Demo Video
 Check out the demo of GestureGuru in action!
