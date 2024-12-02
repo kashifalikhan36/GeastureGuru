@@ -31,12 +31,7 @@ This is a beta release (v1.0.0-beta.1). While fully functional, some features ar
 ---
 
 ## Feedback
-We value your input! Please submit bugs, feature requests, or general feedback through the [issues page](https://github.com/your-repo-link/issues).
-
----
-
-## License
-GestureGuru is released under the [MIT License](LICENSE).
+We value your input! Please submit bugs, feature requests, or general feedback through the [issues page](https://github.com/kashifalikhan36/Geasturegurus/issues).
 
 ---
 
