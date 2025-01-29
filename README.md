@@ -32,6 +32,42 @@ Check out the demo of GestureGuru in action!
 
 ---
 
+## Contribution Guidelines for IWOC'25
+We appreciate your initiative in open-sourcing GestureGuru! To ensure a seamless collaboration experience, please follow these key guidelines:
+
+### 1. Documentation
+A well-documented repository helps attract and retain contributors. Ensure the following:
+- A detailed **README.md** explaining the project's purpose, functionality, and setup process.
+- A **CONTRIBUTING.md** file to guide new contributors.
+- A **Code of Conduct** to maintain a welcoming environment.
+
+### 2. Issue Management
+- Create well-defined issues with a clear context and objectives.
+- Use issue templates to standardize bug reports and feature requests.
+- Properly documented issues help track progress and prioritize tasks efficiently.
+
+### 3. Communication & Engagement
+- Actively participate in discussions and guide contributors during development.
+- Review and merge pull requests promptly.
+- If a contributor is inactive on an assigned issue for more than 3 days, follow up or reassign the issue.
+
+### 4. Efficient Auditing
+- Monitor the project regularly during January and February.
+- Avoid inactivity to maintain project momentum and attract more contributors.
+- Ensure meaningful contributions by maintaining quality control.
+
+### 5. Labels & Milestones
+- Tag issues with the **"IWOC2025"** label to track IWOC participation.
+- Categorize issues by difficulty:
+  - **Easy**: Best for beginners (10 points)
+  - **Medium**: Suitable for intermediate contributors (30 points)
+  - **Hard**: Best for advanced contributors (60 points)
+- For complex tasks, create sub-issues and categorize them accordingly.
+
+Now you're all set for IWOC'25!
+
+---
+
 ## Beta Disclaimer
 This is a beta release (v1.0.0-beta.1). While fully functional, some features are still under development. Your feedback will help us improve and refine GestureGuru for the official release.
 
@@ -43,3 +79,7 @@ We value your input! Please submit bugs, feature requests, or general feedback t
 ---
 
 **Let’s make the internet more accessible together!**
+
+**Regards,**  
+*Team Innogeeks*
+
