@@ -112,7 +112,7 @@ We appreciate your initiative in open-sourcing GestureGuru! To ensure a seamless
 ### **1. Documentation**  
 A well-documented repository helps attract and retain contributors. Ensure the following:  
 - A detailed **README.md** explaining the project's purpose, functionality, and setup process.  
-- A **[CONTRIBUTING.md](https://github.com/kashifalikhan36/Geasturegurus/blob/main/CONTRIBUTING.md)** file to guide new contributors.  
+- A **[CONTRIBUTING.md](https://github.com/kashifalikhan36/Geasturegurus/blob/main/Contributing.md)** file to guide new contributors.  
 - A **Code of Conduct** to maintain a welcoming environment.
 - 
 ---
