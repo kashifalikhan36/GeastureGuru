@@ -79,7 +79,3 @@ We value your input! Please submit bugs, feature requests, or general feedback t
 ---
 
 **Let’s make the internet more accessible together!**
-
-**Regards,**  
-*Team Innogeeks*
-
